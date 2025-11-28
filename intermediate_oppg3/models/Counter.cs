@@ -1,0 +1,10 @@
+﻿namespace intermediate_oppg3.models;
+
+public class Counter(string name, int maxCount, int delay)
+{
+    public string Name {get;set;} = name;
+
+    public int MaxCount {get;set;} = maxCount;
+
+    public int DelayMs {get;set;} = delay;
+}

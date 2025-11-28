@@ -1,5 +1,6 @@
 ﻿namespace intermediate_oppg3.functions;
 
+public delegate void MyDelegate(string input);
 public static class AsyncSample
 {
     private static int _runTimerExCount;
@@ -25,5 +26,28 @@ public static class AsyncSample
     public static async void WriteSample()
     {
         Console.WriteLine("WriteSample");
+        await _runTimer2();
+    }
+    
+    public static async Task _runTimer2()
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            await Task.Delay(250);
+            Console.WriteLine(i);
+        }
+        _runTimerExCount++;
+        Console.WriteLine($"{_runTimerExCount} times executed _runTimer");
+    }
+
+    public static async void PressX()
+    {
+        ConsoleKeyInfo keyinfo;
+        do
+        {
+            keyinfo = Console.ReadKey();
+            Console.WriteLine($" {keyinfo.Key} was pressed");
+        }
+        while (keyinfo.Key != ConsoleKey.X);
     }
 }

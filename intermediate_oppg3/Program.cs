@@ -1,4 +1,5 @@
 ﻿using intermediate_oppg3.functions;
+using intermediate_oppg3.models;
 
 namespace intermediate_oppg3;
 
@@ -6,11 +7,25 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        //Console.WriteLine("Hello, World!");
         //await CountWithAsyncAwait();
+        /*var stask = AsyncSample.Count();
+        var stask2 = AsyncSample.Count();
         await AsyncSample.Count();
-        AsyncSample.WriteSample();
-        Console.WriteLine("I'm the last WriteLine.");
+        AsyncSample.WriteSample();*/
+        List<Drone<string>> droneList = new();
+        
+        Drone<string> firstDrone = new("firstDrone",100,"Dynamite",1,9);
+        Drone<string> secondDrone = new("secondDrone",220,"Lamp oil",1,9);
+        
+        droneList.Add(firstDrone);
+        droneList.Add(secondDrone);
+        
+        /*var FD = FlightTower.AsyncSendSingleDrone(firstDrone);
+        var SD = FlightTower.AsyncSendSingleDrone(secondDrone);*/
+        var newTask = CountWithAsyncAwait();
+        await FlightTower.AsyncSendDrones(droneList);
+        Console.WriteLine("I'm the last WriteLine in the Main method.");
     }
     
     
